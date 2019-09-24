@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'track3.ui'
+# Form implementation generated from reading ui file 'track.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.0
 #
@@ -87,13 +87,6 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         MainWindow.setTabOrder(self.lineEdit_waterin, self.pushButton_waterin)
 
-        self.empty_water()
-        self.water_status()
-
-        self.pushButton_waterin.clicked.connect(self.add_waterin)
-        self.pushButton_waterin.clicked.connect(self.water_status)
-
-
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -103,36 +96,6 @@ class Ui_MainWindow(object):
         self.label_needvalue.setText(_translate("MainWindow", "7"))
         self.lineEdit_waterin.setText(_translate("MainWindow", "0"))
         self.pushButton_waterin.setText(_translate("MainWindow", "Add"))
-
-    def empty_water(self):
-        wwaterin = open("./data/water/waterin", "w")
-        wwaterlevel = open("./data/water/waterlevel", "w")
-        wwaterin.write('0')
-        wwaterlevel.write('0')
-
-    def water_status(self):
-        rwaterin = open("./data/water/waterin", "r")
-        rwaterlevel = open("./data/water/waterlevel", "r")
-
-        rdwaterin = rwaterin.read()
-        rdwaterlevel = rwaterlevel.read()
-
-        self.lineEdit_waterin.setText(str(rdwaterin))
-        self.progressBar_water.setProperty("value", rdwaterlevel)
-
-    def add_waterin(self):
-        rwaterin = open("./data/water/waterin", "r")
-        rdwaterin = rwaterin.read()
-        swaterin = str(rdwaterin)
-        iwaterin = int(swaterin)
-        awaterin = iwaterin + 1
-        fwaterlevel = awaterin/7*100
-        iwaterlevel = int(fwaterlevel)
-
-        wwaterin = open("./data/water/waterin", "w")
-        wwaterlevel = open("./data/water/waterlevel", "w")
-        wwaterin.write(str(awaterin))
-        wwaterlevel.write(str(iwaterlevel))
 
 
 if __name__ == "__main__":
