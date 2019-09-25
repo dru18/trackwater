@@ -107,8 +107,12 @@ class Ui_MainWindow(object):
     def empty_water(self):
         wwaterin = open("./data/water/waterin", "w")
         wwaterlevel = open("./data/water/waterlevel", "w")
+
         wwaterin.write('0')
         wwaterlevel.write('0')
+
+        wwaterin.close()
+        wwaterlevel.close()
 
     def water_status(self):
         rwaterin = open("./data/water/waterin", "r")
@@ -119,6 +123,14 @@ class Ui_MainWindow(object):
 
         self.lineEdit_waterin.setText(str(rdwaterin))
         self.progressBar_water.setProperty("value", rdwaterlevel)
+
+        iwaterlevel = int(rdwaterlevel)
+
+        if iwaterlevel == 100:
+            self.pushButton_waterin.setEnabled(False)
+        
+        rwaterin.close()
+        rwaterlevel.close()
 
     def add_waterin(self):
         rwaterin = open("./data/water/waterin", "r")
@@ -133,6 +145,9 @@ class Ui_MainWindow(object):
         wwaterlevel = open("./data/water/waterlevel", "w")
         wwaterin.write(str(awaterin))
         wwaterlevel.write(str(iwaterlevel))
+
+        rwaterin.close()
+        wwaterin.close()
 
 
 if __name__ == "__main__":
