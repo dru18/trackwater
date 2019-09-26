@@ -93,10 +93,11 @@ class Ui_MainWindow(object):
         self.pushButton_set_target.clicked.connect(self.read_database)
         self.pushButton_add_water.clicked.connect(self.add_water)
         self.pushButton_add_water.clicked.connect(self.read_database)
+        self.pushButton_add_water.clicked.connect(self.write_log)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Track"))
         self.groupBox_water_tracker.setTitle(_translate("MainWindow", "Water_Tracker"))
         self.label_set_target.setText(_translate("MainWindow", "Set target"))
         self.label_add_water.setText(_translate("MainWindow", "Add water"))
@@ -105,10 +106,10 @@ class Ui_MainWindow(object):
         self.pushButton_add_water.setText(_translate("MainWindow", "Add"))
 
     def read_database(self):
-        water_target_read = open("./log/water/water_target", "r")
+        water_target_read = open("./data/water/water_target", "r")
         water_target_data = water_target_read.read()
         water_target_read.close()
-        water_count_read = open("./log/water/water_count", "r")
+        water_count_read = open("./data/water/water_count", "r")
         water_count_data = water_count_read.read()
         water_count_read.close()
         water_target_string = str(water_target_data)
@@ -129,28 +130,53 @@ class Ui_MainWindow(object):
 
     def set_target(self):
         target = self.spinBox_set_target.text()
-        water_target_write = open("./log/water/water_target", "w")
+        water_target_write = open("./data/water/water_target", "w")
         water_target_write.write(target)
         water_target_write.flush()
         water_target_write.close()
-        count_water_write = open("./log/water/water_count", "w")
-        count_water_write.write('0')
-        count_water_write.flush()
-        count_water_write.close()
+        water_count_write = open("./data/water/water_count", "w")
+        water_count_write.write('0')
+        water_count_write.flush()
+        water_count_write.close()
+        import os
+        os.system('echo "\n**********$USER**********" >> ./log/water/water.log')
+        water_log_append = open("./log/water/water.log", "a")
+        water_log_append.write("\n=====Target[" + target + "]=====")
+        water_log_append.flush()
+        water_log_append.close()
+
+    def write_log(self):
+        import datetime
+        import time
+        time = datetime.datetime.fromtimestamp(time.time()).strftime("%d-%m-%Y %H:%M:%S")
+        time_string = str(time)
+        water_target_read = open("./data/water/water_target", "r")
+        water_target_data = water_target_read.read()
+        water_target_string = str(water_target_data)
+        water_count_read = open("./data/water/water_count", "r")
+        water_count_data = water_count_read.read()
+        water_count_string = str(water_count_data)
+        water_log_append = open("./log/water/water.log", "a")
+        log = "\n[Target] " + water_target_string + "\t(Done) " + water_count_string + "\t" + time_string
+        water_log_append.write(log)
+        water_log_append.flush()
+        water_log_append.close()
+        water_count_read.close()
+        water_target_read.close()
 
     def add_water(self):
-        water_count_read = open("./log/water/water_count", "r")
+        water_count_read = open("./data/water/water_count", "r")
         water_count_data = water_count_read.read()
         water_count_read.close()
         water_count_string = str(water_count_data)
         water_count_integer = int(water_count_string)
         water_count_plus = water_count_integer + 1
         water_count = str(water_count_plus)
-        water_count_write = open("./log/water/water_count", "w")
+        water_count_write = open("./data/water/water_count", "w")
         water_count_write.write(water_count)
         water_count_write.flush()
         water_count_write.close()
-        water_target_read = open("./log/water/water_target", "r")
+        water_target_read = open("./data/water/water_target", "r")
         water_target_data = water_target_read.read()
         water_target_read.close()
         water_target_string = str(water_target_data)
