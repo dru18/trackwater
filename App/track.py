@@ -94,6 +94,7 @@ class Ui_MainWindow(object):
         self.pushButton_add_water.clicked.connect(self.add_water)
         self.pushButton_add_water.clicked.connect(self.read_database)
         self.pushButton_add_water.clicked.connect(self.write_log)
+        self.spinBox_set_target.valueChanged['QString'].connect(self.check_target)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -127,6 +128,14 @@ class Ui_MainWindow(object):
             self.pushButton_add_water.setEnabled(False)
         else:
             self.pushButton_add_water.setEnabled(True)
+
+    def check_target(self):
+        target = self.spinBox_set_target.text()
+        target_int = int(target)
+        if target_int == 0:
+            self.pushButton_set_target.setEnabled(False)
+        else:
+            self.pushButton_set_target.setEnabled(True)
 
     def set_target(self):
         target = self.spinBox_set_target.text()
