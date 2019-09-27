@@ -89,6 +89,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.read_database()
+        self.check_target()
         self.pushButton_set_target.clicked.connect(self.set_target)
         self.pushButton_set_target.clicked.connect(self.read_database)
         self.pushButton_add_water.clicked.connect(self.add_water)
