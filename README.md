@@ -1,6 +1,6 @@
 # track
 
-![water_tracker_v1.0.png](https://github.com/dru18/blob/master/App/Screenshot/water_tracker_v1.0.png)
+![water_tracker_v1.0.png](https://github.com/dru18/track/blob/master/App/Screenshot/water_tracker_v1.0.png)
 
 - It will track what is the current water level of your body.
 - It will track what is the current liquid level of your body.
