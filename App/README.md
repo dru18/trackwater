@@ -12,6 +12,8 @@ PyQt5
 
 > python3 comes preinstalled on linux.
 
+> If pip3 is already installed on your system skip "Install pip3"
+
 ### Install pip3
 
 ```sudo apt install python3-pip```
