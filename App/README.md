@@ -1,6 +1,6 @@
 # Water Tracker v1.0
 
-![water_tracker_v1.0.2.png](https://github.com/dru18/blob/master/App/Screenshot/water_tracker_v1.0.png)
+![water_tracker_v1.0.2.png](https://github.com/dru18/track/blob/master/App/Screenshot/water_tracker_v1.0.png)
 
 ##Prerequisite
 
