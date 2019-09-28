@@ -10,7 +10,7 @@ pip3
 
 PyQt5
 
-python3 comes preinstalled on linux.
+> python3 comes preinstalled on linux.
 
 ### Install pip3
 
