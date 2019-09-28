@@ -17,4 +17,4 @@
 
 ## Install the App
 
-[Installation](https://github.com/dru18/tree/master/App)
+[Installation](https://github.com/dru18/track/tree/master/App)
