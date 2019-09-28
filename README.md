@@ -15,6 +15,6 @@
 
 ```git clone https://github.com/dru18/track.git```
 
-## Install the App
+## App Installation
 
-[Installation](https://github.com/dru18/track/tree/master/App)
+[Install](https://github.com/dru18/track/tree/master/App) the app
