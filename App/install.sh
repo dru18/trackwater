@@ -1,19 +1,38 @@
 #!/bin/bash
+
+# Print installing track
 echo "Installing Track"
-sudo mkdir -v -p /var/log/track/water/
-sudo touch /var/log/track/water/water.log
-sudo chown -v pj:pj /var/log/track/water/water.log
-sudo echo "" > /log/track/water/water.log
+
+# Make required directories for track
 sudo mkdir -v -p /opt/track/water/
-sudo cp -v track.py /opt/track/water/track.py
 sudo mkdir -v -p /var/opt/track/water/
-sudo ln -v /opt/track/water/track.py /var/opt/track/water/track
-sudo touch /var/opt/track/water/target
-sudo chown -v $USER:$USER /var/opt/track/water/target
+sudo mkdir -v -p /var/log/track/water/
+
+# Give privilleges to local user for required directories
+sudo chown -vR $USER:$USER /opt/track/
+sudo chown -vR $USER:$USER /var/opt/track/
+sudo chown -vR $USER:$USER /var/log/track/
+sudo chown -v $USER:$USER /usr/local/bin/track
+
+# Copy source file to system
+sudo cp -v track.py /opt/track/water/track.py
+
+# Make required log file
+sudo touch -v /var/log/track/water/water.log
+
+# Make required variables
+sudo touch -v /var/opt/track/water/target
+sudo touch -v /var/opt/track/water/count
+
+# Initialise variables
 sudo echo 0 > /var/opt/track/water/target
-sudo touch /var/opt/track/water/count
-sudo chown -v $USER:$USER /var/opt/track/water/count
 sudo echo 0 > /var/opt/track/water/count
-sudo ln -v -s /var/opt/track/water/track /usr/bin/track
-sudo chown -v $USER:$USER /usr/bin/track
-echo "Track installed"
+
+# Initialise log
+sudo echo -v "" > /log/track/water/water.log
+
+# Make command for track
+sudo ln -v -s /var/opt/track/water/track /usr/local/bin/track
+
+#  Print installation done
+echo "Installation done"
