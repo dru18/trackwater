@@ -10,12 +10,28 @@
     It will keep remember your unfinished target even if you
     close the app. So you don't need to keep it running. Just
     use when you drink your water and close. That's it.
+    
+  grade: stable # must be 'stable' to release into candidate/stable channels
+  confinement: strict # use 'strict' once you have the right plugs and slots
 
-  grade: stable
-  confinement: strict
+apps:
+  trackwater:
+    command: desktop-launch $SNAP/app
+    plugs: [unity7, x11, opengl]
 
-  parts:
-    my-part:
-      # See 'snapcraft plugins'
-      plugin: nil
-  
+parts:
+  app:
+    plugin: dump
+    source: ./src
+    organize:
+      main.py: app
+
+    stage-packages:
+      - qtdeclarative5-qtquick2-plugin
+      - python3-pyqt5
+      - python3-pyqt5.qtquick
+      - overlay-scrollbar-gtk2
+      - libatk-adaptor
+      - libcanberra-gtk-module
+      - unity-gtk3-module
+    after: [desktop-qt5]
