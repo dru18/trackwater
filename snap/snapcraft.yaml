@@ -1,0 +1,21 @@
+
+  name: trackwater
+  version: 1.0.2
+  summary: Track your body water to keep yourself healthy.
+  description: |
+    This app will track your body water to keep you healthy.
+    Each time you drink a glass of water this app will allow
+    you to add record of that for you. You just need to set
+    target for water drink everyday and it will save it for you.
+    It will keep remember your unfinished target even if you
+    close the app. So you don't need to keep it running. Just
+    use when you drink your water and close. That's it.
+
+  grade: stable
+  confinement: strict
+
+  parts:
+    my-part:
+      # See 'snapcraft plugins'
+      plugin: nil
+  
