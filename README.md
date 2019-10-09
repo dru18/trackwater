@@ -1,5 +1,6 @@
 # track
 
+![GitHub](https://img.shields.io/github/license/dru18/track)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/dru18/track?style=plastic)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dru18/track)
 ![GitHub issues](https://img.shields.io/github/issues/dru18/track?style=plastic)
