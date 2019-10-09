@@ -1,6 +1,7 @@
 # track
 
 ![GitHub issues](https://img.shields.io/github/issues/dru18/track?style=plastic)
+![GitHub closed issues](https://img.shields.io/github/issues-closed/dru18/track?style=plastic)
 
 - It will track what is the current water level of your body.
 - It will track what is the current liquid level of your body.
